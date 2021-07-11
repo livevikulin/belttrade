@@ -1,0 +1,172 @@
+.hero {
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		z-index: 10;
+		@media (max-width: 1024px) {
+			z-index: 0;
+		}
+	}
+	text-align: center;
+	padding: 100px 0 150px;
+	background-color: #ffffff;
+	position: relative;
+	@media (max-width: 1200px) {
+		padding: 44px 16px 150px;
+	}
+	&:before {
+		position: absolute;
+		content: url(../../../img/quattrobike.png);
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+		@media (max-width: 1200px) {
+			display: none;
+		}
+	}
+	&:after {
+		position: absolute;
+		content: url(../../../img/snowbike.png);
+		top: -115px;
+		right: 0;
+		z-index: 0;
+		@media (max-width: 1200px) {
+			display: none;
+		}
+	}
+	h1 {
+		font-family: 'Inter';
+		font-weight: 500;
+		font-size: 48px;
+		line-height: 60px;
+		color: #111111;
+		margin-bottom: 32px;
+		@media (max-width: 1024px) {
+			font-size: 32px;
+			line-height: 38px;
+			margin-bottom: 20px;
+		}
+	}
+	p {
+		font-family: 'Inter';
+		font-size: 18px;
+		line-height: 27px;
+		color: #111111;
+		@media (max-width: 1024px) {
+			font-size: 16px;
+			line-height: 25px;
+		}
+	}
+	&__items {
+		display: flex;
+		justify-content: center;
+		padding-top: 88px;
+		margin: 0 -10px;
+		position: relative;
+	}
+	&__action {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: -140px;
+		right: -145px;
+		width: 200px;
+		height: 200px;
+		font-family: 'Inter';
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 25px;
+		color: #111111;
+		background: #B3E504;
+		border-radius: 50%;
+		padding: 0 15px;
+		transform: rotate(-15deg);
+		z-index: 1;
+		@media (max-width: 1024px) {
+			top: -34px;
+			right: -180px;
+			width: 172px;
+			height: 172px;
+			font-size: 14px;
+			line-height: 22px;
+			z-index: -1;
+		}
+	}
+	&__item {
+		max-width: 224px;
+		margin: 0 10px;
+		svg {
+			margin-bottom: 8px;
+		}
+		p {
+			font-family: 'Inter';
+			font-size: 15px;
+			line-height: 22px;
+			text-align: center;
+			color: #626262;
+		}
+		@media (max-width: 1024px) {
+			display: none;
+		}
+	}
+	.button {
+		display: inline-block;
+		margin: 44px 0 32px;
+		padding: 20px 32px;
+		position: relative;
+		overflow: hidden;
+		&:before {
+			position: absolute;
+			content: '';
+			top: 50%;
+			left: 30px;
+			transform: translateY(-50%) rotate(30deg);
+			display: block;
+			width: 15px;
+			height: 150%;
+			background-color: #ffffff;
+			filter: blur(10px);
+			box-shadow: 0 0 20px #ffffff;
+			opacity: 0.9;
+			animation: blickAnim 1.5s ease-in-out infinite;
+		}
+		@media (min-width: 1024px) {
+			&:hover {
+				&:before {
+					z-index: -1;
+				}
+			}
+		}
+		@media (max-width: 1024px) {
+			margin: 24px 0;
+		}
+	}
+}
+
+@keyframes blickAnim {
+	from {
+		left: -50px;
+	}
+	to {
+		left: 500%;
+	}
+}
+
+.small-button {
+	display: inline-block;
+	font-family: 'Inter';
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+	color: #111111;
+	border-bottom: 2px solid #111111;
+	transition: 0.2s ease;
+	@media (min-width: 1024px) {
+		&:hover {
+			border-color: transparent;
+		}
+	}
+}

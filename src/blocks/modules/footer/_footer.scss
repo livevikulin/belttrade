@@ -1,0 +1,29 @@
+.footer {
+	text-align: center;
+	background: #111111;
+	padding: 28px 0 32px;
+	p {
+		font-family: 'Inter';
+		font-size: 15px;
+		line-height: 24px;
+		color: #FFFFFF;
+		opacity: 0.8;
+	}
+}
+
+.footer-link {
+	font-family: 'Inter';
+	font-size: 15px;
+	line-height: 24px;
+	text-decoration-line: underline;
+	color: #FFFFFF;
+	opacity: 0.8;
+	transition: .2s ease;
+	margin-bottom: 8px;
+	@media (min-width: 1024px) {
+		&:hover {
+			opacity: 1;
+			text-decoration-line: none;
+		}
+	}
+}
