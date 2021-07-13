@@ -124,7 +124,7 @@ main
 					.order-advantages-item__title Мы - официальный дилер мировых брендов
 					.order-advantages-item__subtitle Optibelt (Германия), Gates (США)
 					a(href="#") Сертификаты 
-			a.button(href="#") Заказать подбор ремня
+			a.button(href="#" data-micromodal-trigger="modal") Заказать подбор ремня
 
 	section.section-block.order-form 
 		.container
@@ -511,7 +511,12 @@ main
 				.contacts-box
 					span Электронная почта:
 					p office@belttrade.ru
-				a.button(href="#") Напишите нам
+				a.button(href="#" data-micromodal-trigger="modal") Напишите нам
 				a.button-social(href="#") Мы в Instagram 
+	a#to-up.to-up(href="#")
+		svg(width='72' height='72' viewbox='0 0 72 72' fill='none' xmlns='http://www.w3.org/2000/svg')
+			circle(opacity='0.5' cx='36' cy='36' r='36' fill='#B3E504')
+			path(d='M36 52L36 20M36 20L24 32.1379M36 20L48 32.1379' stroke='#22280D' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round')
 
 include ../footer/footer
+include ../../components/modal/modal

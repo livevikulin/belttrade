@@ -108,6 +108,7 @@ for (let scroll of scrollTo) {
     scroll.addEventListener("click", function (e) {
         e.preventDefault();
         document.querySelector(".menu-mobile").classList.remove("open-menu");
+		document.querySelector("body").style.overflow = "visible";
         const blockID = scroll.getAttribute("href");
     
         document.querySelector(blockID).scrollIntoView({
@@ -116,3 +117,54 @@ for (let scroll of scrollTo) {
         });
     });
 }
+
+//Кнопка наверх
+
+let toUpBtn = document.getElementById('to-up')
+
+toUpBtn.addEventListener('click', smoothJumpUp)
+
+function scrollUp(to, duration = 700) {
+	const
+		element = document.scrollingElement || document.documentElement,
+		start = element.scrollTop,
+		change = to - start,
+		startDate = +new Date(),
+		// t = current time
+		// b = start value
+		// c = change in value
+		// d = duration
+		easeInOutQuad = function (t, b, c, d) {
+			t /= d / 2;
+			if (t < 1) return c / 2 * t * t + b;
+			t--;
+			return -c / 2 * (t * (t - 2) - 1) + b;
+		},
+		animateScroll = function () {
+			const currentDate = +new Date();
+			const currentTime = currentDate - startDate;
+			element.scrollTop = parseInt(easeInOutQuad(currentTime, start, change, duration));
+			if (currentTime < duration) {
+				requestAnimationFrame(animateScroll);
+			}
+			else {
+				element.scrollTop = to;
+			}
+		};
+	animateScroll();
+}
+
+function smoothJumpUp(e) {
+	e.preventDefault()
+	scrollUp(0, 400)
+}
+
+window.addEventListener('scroll', function() {
+	let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+	if (scrolled > 100) {
+		toUpBtn.style.opacity = '1';
+	} else {
+		toUpBtn.style.opacity = '0';
+	}
+})
+
