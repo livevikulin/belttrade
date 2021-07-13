@@ -2479,6 +2479,30 @@ omoda .modal-wrapperer {
   }
 }
 
+@media (max-width: 1800px) {
+  .price .belt {
+    transform: translateX(-50px);
+  }
+}
+
+@media (max-width: 1700px) {
+  .price .belt {
+    transform: translateX(-100px);
+  }
+}
+
+@media (max-width: 1600px) {
+  .price .belt {
+    transform: translateX(-150px);
+  }
+}
+
+@media (max-width: 1500px) {
+  .price .belt {
+    display: none;
+  }
+}
+
 @media (max-width: 1200px) {
   .hero {
     padding: 44px 16px 150px;
@@ -2533,10 +2557,6 @@ omoda .modal-wrapperer {
 
   .price {
     padding: 72px 16px;
-  }
-
-  .price .belt {
-    display: none;
   }
 }
 
