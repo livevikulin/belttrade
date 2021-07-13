@@ -25,6 +25,19 @@ const swiperGallery = new Swiper(".gallery-slider", {
     }
 });
 
+const screenWidth = window.screen.width
+if ( screenWidth < 768 ) {
+	const swiperVideo = new Swiper(".video-nav", {
+		direction: 'vertical',
+		slidesPerView: 1,
+		spaceBetween: 12,
+		navigation: {
+			nextEl: ".video-next",
+			prevEl: ".video-prev",
+		}
+	})
+}
+
 
 //Табы 
 let tabBtn = document.querySelectorAll(".tab-btn");
@@ -56,7 +69,15 @@ selectItem.forEach( item => {
         showSearch: false,
         select: item
     });
+
+	item.addEventListener('change', function() {
+		let selectBox = this.parentElement
+		if ( selectBox.nextElementSibling.classList.contains('select-hide') ) {
+			selectBox.nextElementSibling.classList.remove('select-hide')
+		}
+	})
 });
+
 
 //Табы видео
 let tabVideo = document.querySelectorAll(".video-tab");

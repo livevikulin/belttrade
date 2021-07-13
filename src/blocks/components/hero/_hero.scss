@@ -16,6 +16,9 @@
 	@media (max-width: 1200px) {
 		padding: 44px 16px 150px;
 	}
+	@media (max-width: 768px) {
+		padding: 44px 16px 90px;
+	}
 	&:before {
 		position: absolute;
 		content: url(../../../img/quattrobike.png);
