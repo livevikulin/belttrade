@@ -985,7 +985,7 @@ ul {
 
 .hero:before {
   position: absolute;
-  content: url(./img/quattrobike.png);
+  content: url(../img/quattrobike.png);
   bottom: 0;
   left: 0;
   z-index: 0;
@@ -993,7 +993,7 @@ ul {
 
 .hero:after {
   position: absolute;
-  content: url(./img/snowbike.png);
+  content: url(../img/snowbike.png);
   top: -115px;
   right: 0;
   z-index: 0;
@@ -1881,7 +1881,7 @@ section {
 }
 
 .selection {
-  background-image: url(./img/bg-selection.jpg);
+  background-image: url(../img/bg-selection.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
