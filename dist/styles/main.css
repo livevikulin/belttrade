@@ -1797,7 +1797,8 @@ section {
 .price-item__btn {
   max-width: 180px;
   padding-top: 16px;
-  margin-left: 50px;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .price-item__btn span {

@@ -25,8 +25,18 @@ const swiperGallery = new Swiper(".gallery-slider", {
     }
 });
 
-const screenWidth = window.screen.width
+const screenWidth = document.documentElement.clientWidth
 if ( screenWidth < 768 ) {
+    let videoContainer = document.querySelector('.video-nav'),
+        videoWrapper = document.querySelector('.video-wrapper'),
+        videoSlide = document.querySelectorAll('.video-tab');
+    
+    videoContainer.classList.add('swiper-container')
+    videoWrapper.classList.add('swiper-wrapper')
+    videoSlide.forEach( item => {
+        item.classList.add('swiper-slide')
+    })
+
 	const swiperVideo = new Swiper(".video-nav", {
 		direction: 'vertical',
 		slidesPerView: 1,

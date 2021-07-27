@@ -2600,9 +2600,13 @@ var A11y = {
     }
 
     swiper.a11y.addElRole(Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(swiper.slides), params.slideRole);
-    swiper.slides.each(function (slideEl) {
+    var slidesLength = swiper.params.loop ? swiper.slides.filter(function (el) {
+      return !el.classList.contains(swiper.params.slideDuplicateClass);
+    }).length : swiper.slides.length;
+    swiper.slides.each(function (slideEl, index) {
       var $slideEl = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(slideEl);
-      var ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, $slideEl.index() + 1).replace(/\{\{slidesLength\}\}/, swiper.slides.length);
+      var slideIndex = swiper.params.loop ? parseInt($slideEl.attr('data-swiper-slide-index'), 10) : index;
+      var ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, slideIndex + 1).replace(/\{\{slidesLength\}\}/, slidesLength);
       swiper.a11y.addElLabel($slideEl, ariaLabelMessage);
     }); // Navigation
 
@@ -5341,7 +5345,7 @@ function onTouchStart(event) {
   data.isTouchEvent = e.type === 'touchstart';
   if (!data.isTouchEvent && 'which' in e && e.which === 3) return;
   if (!data.isTouchEvent && 'button' in e && e.button > 0) return;
-  if (data.isTouched && data.isMoved) return; // change target el for shadow root componenet
+  if (data.isTouched && data.isMoved) return; // change target el for shadow root component
 
   var swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== '';
 
@@ -8421,7 +8425,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 var HashNavigation = {
-  onHashCange: function onHashCange() {
+  onHashChange: function onHashChange() {
     var swiper = this;
     var document = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getDocument"])();
     swiper.emit('hashChange');
@@ -8473,7 +8477,7 @@ var HashNavigation = {
     }
 
     if (swiper.params.hashNavigation.watchState) {
-      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).on('hashchange', swiper.hashNavigation.onHashCange);
+      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).on('hashchange', swiper.hashNavigation.onHashChange);
     }
   },
   destroy: function destroy() {
@@ -8481,7 +8485,7 @@ var HashNavigation = {
     var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
 
     if (swiper.params.hashNavigation.watchState) {
-      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).off('hashchange', swiper.hashNavigation.onHashCange);
+      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).off('hashchange', swiper.hashNavigation.onHashChange);
     }
   }
 };
@@ -11423,11 +11427,6 @@ var Zoom = {
       gesture.slideWidth = gesture.$slideEl[0].offsetWidth;
       gesture.slideHeight = gesture.$slideEl[0].offsetHeight;
       gesture.$imageWrapEl.transition(0);
-
-      if (swiper.rtl) {
-        image.startX = -image.startX;
-        image.startY = -image.startY;
-      }
     } // Define if we need image drag
 
 
@@ -12428,16 +12427,23 @@ function isObject(o) {
   return typeof o === 'object' && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === 'Object';
 }
 
+function isNode(node) {
+  // eslint-disable-next-line
+  if (typeof window !== 'undefined') {
+    return node instanceof HTMLElement;
+  }
+
+  return node && (node.nodeType === 1 || node.nodeType === 11);
+}
+
 function extend() {
   var to = Object(arguments.length <= 0 ? undefined : arguments[0]);
-  var noExtend = ['__proto__', 'constructor', 'prototype']; // eslint-disable-next-line
-
-  var HTMLElement = typeof window !== 'undefined' ? window.HTMLElement : undefined;
+  var noExtend = ['__proto__', 'constructor', 'prototype'];
 
   for (var i = 1; i < arguments.length; i += 1) {
     var nextSource = i < 0 || arguments.length <= i ? undefined : arguments[i];
 
-    if (nextSource !== undefined && nextSource !== null && !(HTMLElement && nextSource instanceof HTMLElement)) {
+    if (nextSource !== undefined && nextSource !== null && !isNode(nextSource)) {
       var keysArray = Object.keys(Object(nextSource)).filter(function (key) {
         return noExtend.indexOf(key) < 0;
       });
@@ -12588,7 +12594,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Thumbs", function() { return _esm_components_thumbs_thumbs__WEBPACK_IMPORTED_MODULE_19__["default"]; });
 
 /**
- * Swiper 6.7.5
+ * Swiper 6.8.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -12596,7 +12602,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Released under the MIT License
  *
- * Released on: July 1, 2021
+ * Released on: July 22, 2021
  */
 
 

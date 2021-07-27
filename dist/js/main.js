@@ -263,9 +263,17 @@ var swiperGallery = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".gallery
     el: ".gallery-pagination"
   }
 });
-var screenWidth = window.screen.width;
+var screenWidth = document.documentElement.clientWidth;
 
 if (screenWidth < 768) {
+  var videoContainer = document.querySelector('.video-nav'),
+      videoWrapper = document.querySelector('.video-wrapper'),
+      videoSlide = document.querySelectorAll('.video-tab');
+  videoContainer.classList.add('swiper-container');
+  videoWrapper.classList.add('swiper-wrapper');
+  videoSlide.forEach(function (item) {
+    item.classList.add('swiper-slide');
+  });
   var swiperVideo = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".video-nav", {
     direction: 'vertical',
     slidesPerView: 1,

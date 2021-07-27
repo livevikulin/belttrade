@@ -409,7 +409,8 @@ section {
 	&__btn {
 		max-width: 180px;
 		padding-top: 16px;
-		margin-left: 50px;
+		margin-left: auto;
+		margin-right: 0;
 		span {
 			display: block;
 			font-family: 'Inter';
