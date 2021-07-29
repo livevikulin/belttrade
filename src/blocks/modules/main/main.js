@@ -62,21 +62,21 @@ tabBtn.forEach(function(item, i) {
 });
 
 //Селекты
-let selectItem = document.querySelectorAll(".selection-select");
+// let selectItem = document.querySelectorAll(".selection-select");
 
-selectItem.forEach( item => {
-    new SlimSelect({
-        showSearch: false,
-        select: item
-    });
+// selectItem.forEach( item => {
+//     new SlimSelect({
+//         showSearch: false,
+//         select: item
+//     });
 
-	item.addEventListener('change', function() {
-		let selectBox = this.parentElement
-		if ( selectBox.nextElementSibling.classList.contains('select-hide') ) {
-			selectBox.nextElementSibling.classList.remove('select-hide')
-		}
-	})
-});
+// 	item.addEventListener('change', function() {
+// 		let selectBox = this.parentElement
+// 		if ( selectBox.nextElementSibling.classList.contains('select-hide') ) {
+// 			selectBox.nextElementSibling.classList.remove('select-hide')
+// 		}
+// 	})
+// });
 
 
 //Табы видео

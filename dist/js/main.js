@@ -294,21 +294,20 @@ tabBtn.forEach(function (item, i) {
     this.classList.add("active-tab");
   });
 }); //Селекты
-
-var selectItem = document.querySelectorAll(".selection-select");
-selectItem.forEach(function (item) {
-  new slim_select__WEBPACK_IMPORTED_MODULE_1___default.a({
-    showSearch: false,
-    select: item
-  });
-  item.addEventListener('change', function () {
-    var selectBox = this.parentElement;
-
-    if (selectBox.nextElementSibling.classList.contains('select-hide')) {
-      selectBox.nextElementSibling.classList.remove('select-hide');
-    }
-  });
-}); //Табы видео
+// let selectItem = document.querySelectorAll(".selection-select");
+// selectItem.forEach( item => {
+//     new SlimSelect({
+//         showSearch: false,
+//         select: item
+//     });
+// 	item.addEventListener('change', function() {
+// 		let selectBox = this.parentElement
+// 		if ( selectBox.nextElementSibling.classList.contains('select-hide') ) {
+// 			selectBox.nextElementSibling.classList.remove('select-hide')
+// 		}
+// 	})
+// });
+//Табы видео
 
 var tabVideo = document.querySelectorAll(".video-tab");
 tabVideo.forEach(function (item, i) {
