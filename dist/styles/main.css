@@ -1985,6 +1985,19 @@ section {
   margin-bottom: 4px;
 }
 
+.select-box .selection-select {
+  width: 100%;
+  font-family: 'Inter';
+  font-size: 15px;
+  line-height: 22px;
+  padding: 17px 10px 17px 20px;
+  -webkit-appearance: none;
+  outline: none;
+  background-image: url(../../../img/svg/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center right 12px;
+}
+
 .select-box .ss-main .ss-single-selected {
   height: 56px;
   padding: 17px 10px 17px 20px;
