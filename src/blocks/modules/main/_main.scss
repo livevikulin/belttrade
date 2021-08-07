@@ -36,6 +36,9 @@ section {
 	position: relative;
 	.swiper-slide {
 		max-width: 580px;
+		@media (max-width: 768px) {
+			max-width: 300px;
+		}
 	}
 	.advantages-arrows {
 		display: flex;
